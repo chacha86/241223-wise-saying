@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class App {
     private int lastId = 0;
-    private int wiseSayingSize = 0;
     private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
@@ -11,6 +10,7 @@ public class App {
     public void run() {
 
         add("꿈을 지녀라. 그러면 어려운 현실을 이길 수 있다.", "월트 디즈니");
+        add("현재를 사랑하라", "작자 미상");
 
         System.out.println("== 명언 앱 ==");
         while (true) {
@@ -33,8 +33,7 @@ public class App {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        for (int i = 0; i < wiseSayingList.size(); i++) {
-            WiseSaying wiseSaying = wiseSayingList.get(i);
+        for(WiseSaying wiseSaying : wiseSayingList.reversed()) {
             System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
         }
     }
