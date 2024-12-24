@@ -37,8 +37,5 @@ public class Test {
             System.out.println(ws.getContent());
             System.out.println(ws.getAuthor());
         }
-
-
-
     }
 }
