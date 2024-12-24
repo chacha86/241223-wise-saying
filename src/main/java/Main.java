@@ -11,9 +11,9 @@ public class Main {
 class App {
 
     // 클래스에서 함수들이 공유해야 하는 변수 -> 인스턴스 변수
-    int lastId = 0;
-    int wiseSayingSize = 0;
-    WiseSaying[] wiseSayingList = new WiseSaying[3];
+    private int lastId = 0;
+    private int wiseSayingSize = 0;
+    private WiseSaying[] wiseSayingList = new WiseSaying[3];
 
     public void run() {
 
@@ -47,29 +47,40 @@ class App {
 
                 for(int i = 0; i < wiseSayingSize; i++) {
                     WiseSaying wiseSaying = wiseSayingList[i];
-                    System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
+                    System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
                 }
             }
         }
     }
 
     public void add(String content, String author) {
-
         WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
         wiseSayingList[wiseSayingSize++] = wiseSaying;
-
     }
 
 }
 
 class WiseSaying {
-    int id;
-    String content;
-    String author;
+    private int id;
+    private String content;
+    private String author;
 
     WiseSaying(int id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
 }
