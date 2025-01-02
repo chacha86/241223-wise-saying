@@ -2,7 +2,7 @@ package wiseSaying;
 
 import java.util.ArrayList;
 
-public class WiseSayingMemRepository extends WiseSayingRepository {
+public class WiseSayingMemRepository implements WiseSayingRepository {
     private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
     private int lastId = 0;
 

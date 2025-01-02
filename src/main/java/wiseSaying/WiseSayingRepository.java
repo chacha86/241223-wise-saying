@@ -2,10 +2,10 @@ package wiseSaying;
 
 import java.util.ArrayList;
 
-public abstract class WiseSayingRepository {
-    public abstract WiseSaying findById(int id);
-    public abstract WiseSaying add(String content, String author);
-    public abstract void update(WiseSaying wiseSaying);
-    public abstract ArrayList<WiseSaying> findAll();
-    public abstract void remove(WiseSaying wiseSaying);
+public interface WiseSayingRepository {
+    WiseSaying findById(int id);
+    WiseSaying add(String content, String author);
+    void update(WiseSaying wiseSaying);
+    ArrayList<WiseSaying> findAll();
+    void remove(WiseSaying wiseSaying);
 }

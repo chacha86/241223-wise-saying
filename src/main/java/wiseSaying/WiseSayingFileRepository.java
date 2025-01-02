@@ -2,7 +2,7 @@ package wiseSaying;
 
 import java.util.ArrayList;
 
-public class WiseSayingFileRepository extends WiseSayingRepository{
+public class WiseSayingFileRepository implements WiseSayingRepository{
 
     // 오버라이딩
     public WiseSaying findById(int id) {
