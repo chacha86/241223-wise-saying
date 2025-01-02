@@ -1,7 +1,6 @@
 import wiseSaying.SystemController;
 import wiseSaying.WiseSayingController;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -44,7 +43,4 @@ public class App {
             }
         }
     }
-
-
-
 }
