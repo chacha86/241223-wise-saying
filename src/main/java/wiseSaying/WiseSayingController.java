@@ -6,7 +6,6 @@ public class WiseSayingController {
 
     private final WiseSayingService wiseSayingService;
     private final Scanner scanner;
-    private int lastId = 0;
 
     public WiseSayingController(Scanner scanner) {
         this.scanner = scanner;
@@ -67,8 +66,7 @@ public class WiseSayingController {
 //        System.out.println("%d번 명언이 등록되었습니다.".formatted(lastId));
 //    }
 //
-//    public void add(String content, String author) {
-//        WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
-//        wiseSayingList.add(wiseSaying);
-//    }
+    public void add(String content, String author) {
+        wiseSayingService.add(content, author);
+    }
 }
