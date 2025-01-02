@@ -1,3 +1,4 @@
+import wiseSaying.SystemController;
 import wiseSaying.WiseSayingController;
 
 import java.util.ArrayList;
@@ -6,11 +7,13 @@ import java.util.Scanner;
 public class App {
 
     private final WiseSayingController wiseSayingController;
+    private final SystemController systemController;
     private final Scanner scanner;
 
     public App() {
         scanner = new Scanner(System.in);
         wiseSayingController = new WiseSayingController(scanner);
+        systemController = new SystemController();
     }
 
     public void run() {
@@ -24,9 +27,8 @@ public class App {
             String command = scanner.nextLine();
 
             if (command.equals("종료")) {
-                System.out.println("명언 앱을 종료합니다.");
+                systemController.exit();
                 break;
-
             } else if (command.equals("등록")) {
                 wiseSayingController.writeWiseSaying();
             } else if (command.equals("목록")) {
