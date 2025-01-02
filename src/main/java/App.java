@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class App {
 
     private final WiseSayingController wiseSayingController;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
     public App() {
-        wiseSayingController = new WiseSayingController();
+        scanner = new Scanner(System.in);
+        wiseSayingController = new WiseSayingController(scanner);
     }
-
 
     public void run() {
 
