@@ -25,22 +25,13 @@ public class App {
                 writeWiseSaying();
             } else if (command.equals("목록")) {
                 printWiseSayingList();
-            } else if(command.startsWith("삭제?id=")) {
-
+            } else if (command.startsWith("삭제?id=")) {
                 String strId = command.substring(6);
                 int id = Integer.parseInt(strId);
-
-                boolean result = deleteWiseSaying(id);
-
-                if(result) {
-                    System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
-                } else {
-                    System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
-                }
-            } else if(command.startsWith("수정?id=")) {
+                deleteWiseSaying(id);
+            } else if (command.startsWith("수정?id=")) {
                 String strId = command.substring(6);
                 int id = Integer.parseInt(strId);
-
                 updateWiseSaying(id);
             }
         }
@@ -48,8 +39,8 @@ public class App {
 
     private WiseSaying findWiseSaying(int targetId) {
 
-        for(WiseSaying wiseSaying : wiseSayingList) {
-            if(wiseSaying.getId() == targetId) {
+        for (WiseSaying wiseSaying : wiseSayingList) {
+            if (wiseSaying.getId() == targetId) {
                 return wiseSaying;
             }
         }
@@ -61,7 +52,7 @@ public class App {
 
         WiseSaying wiseSaying = findWiseSaying(targetId);
 
-        if(wiseSaying == null) {
+        if (wiseSaying == null) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
             return;
         }
@@ -80,23 +71,24 @@ public class App {
 
     }
 
-    private boolean deleteWiseSaying(int targetId) {
+    private void deleteWiseSaying(int targetId) {
 
-        for(WiseSaying wiseSaying : wiseSayingList) {
-            if(wiseSaying.getId() == targetId) {
-                wiseSayingList.remove(wiseSaying);
-                return true;
-            }
+        WiseSaying wiseSaying = findWiseSaying(targetId);
+
+        if (wiseSaying == null) {
+            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
+            return;
         }
 
-        return false;
+        wiseSayingList.remove(wiseSaying);
+        System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
     }
 
     private void printWiseSayingList() {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        for(WiseSaying wiseSaying : wiseSayingList.reversed()) {
+        for (WiseSaying wiseSaying : wiseSayingList.reversed()) {
             System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
         }
     }
