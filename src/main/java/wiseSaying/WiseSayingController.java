@@ -8,9 +8,11 @@ public class WiseSayingController {
     private final WiseSayingService wiseSayingService;
     private final Scanner scanner;
 
+    // 자바 대전제 -> 같은 타입만 저장 가능.
+
     public WiseSayingController(Scanner scanner) {
         this.scanner = scanner;
-        this.wiseSayingService = new WiseSayingService(new WiseSayingRepository());
+        this.wiseSayingService = new WiseSayingService(new WiseSayingMemRepository());
     }
 
     public void updateWiseSaying(int targetId) {
