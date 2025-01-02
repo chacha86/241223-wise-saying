@@ -81,7 +81,7 @@ public class App {
         }
 
         wiseSayingList.remove(wiseSaying);
-        System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
+        System.out.println("%d번 명언이 삭제되었습니다.".formatted(targetId));
     }
 
     private void printWiseSayingList() {
