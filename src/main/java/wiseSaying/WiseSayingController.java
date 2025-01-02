@@ -1,5 +1,6 @@
 package wiseSaying;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WiseSayingController {
@@ -46,14 +47,16 @@ public class WiseSayingController {
 //        System.out.println("%d번 명언이 삭제되었습니다.".formatted(targetId));
 //    }
 //
-//    public void printWiseSayingList() {
-//        System.out.println("번호 / 작가 / 명언");
-//        System.out.println("----------------------");
-//
-//        for (WiseSaying wiseSaying : wiseSayingList.reversed()) {
-//            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
-//        }
-//    }
+    public void printWiseSayingList() {
+        System.out.println("번호 / 작가 / 명언");
+        System.out.println("----------------------");
+
+        ArrayList<WiseSaying> wiseSayings = wiseSayingService.findAll();
+
+        for (WiseSaying wiseSaying : wiseSayings.reversed()) {
+            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
+        }
+    }
 //
 //    public void writeWiseSaying() {
 //        System.out.print("명언 : ");
